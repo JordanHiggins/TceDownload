@@ -16,8 +16,9 @@ import (
 var (
 	archFlag    = flag.String("arch", "x86", "The architecture for which to get extensions.")
 	helpFlag    = flag.Bool("help", false, "Shows this help message.")
+	kernelFlag  = flag.String("kernel", "4.8.17-tinycore", "The name of the kernel to use for kernel-specific extensions.")
 	outFlag     = flag.String("out", "tce/%v/%a", "The directory to which to output files.")
-	versionFlag = flag.String("version", "7.x", "The Tiny Core Linux version for which to get extensions.")
+	versionFlag = flag.String("version", "8.x", "The Tiny Core Linux version for which to get extensions.")
 )
 
 var baseDir string
@@ -162,6 +163,8 @@ func getDependencies(name string) ([]string, error) {
 }
 
 func getExtension(name string) error {
+	name = strings.Replace(name, "KERNEL", *kernelFlag, -1)
+
 	if _, ok := checked[name]; ok {
 		return nil
 	}
