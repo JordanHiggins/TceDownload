@@ -12,6 +12,8 @@ Options:
 - `-arch string` The architecture for which to get extensions. (default "x86")
 - `-help` Shows a help message which will look very familiar after viewing this
   readme.
+- `-kernel string` Specifies the name of the kernel to use for kernel-specific
+  extensions.
 - `-out string` The directory to which to output files. (default "tce/%v/%a")
 - `-version string` The Tiny Core Linux version for which to get extensions.
   (default "7.x")
